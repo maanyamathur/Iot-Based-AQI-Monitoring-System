@@ -1,0 +1,775 @@
+[
+    {
+        "id": "8c4314a2bdc0602b",
+        "type": "tab",
+        "label": "Flow 2",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "d56b2919efe453ab",
+        "type": "group",
+        "z": "8c4314a2bdc0602b",
+        "name": "",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "81e0ac24d361ef8d"
+        ],
+        "x": 714,
+        "y": 139,
+        "w": 192,
+        "h": 82
+    },
+    {
+        "id": "031b440b298211cb",
+        "type": "mqtt in",
+        "z": "8c4314a2bdc0602b",
+        "name": "",
+        "topic": "esp32/environment",
+        "qos": "0",
+        "datatype": "json",
+        "broker": "21eca62074be8374",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 170,
+        "y": 240,
+        "wires": [
+            [
+                "37eca36da7a16bf4",
+                "adbf5eee6cd1ae43",
+                "f5214874b8691c20",
+                "142fbf3ec8530819",
+                "6435ae2d88a78b2a",
+                "665fe88741444289",
+                "aba67723963b01c9",
+                "365160659320327b",
+                "5e4e970cd6127169",
+                "99f0efb92afe22c6",
+                "06cf7bc01b300c6a",
+                "12dea66b09718213",
+                "bd76c964214610f4",
+                "c647c7f42f51f537"
+            ]
+        ]
+    },
+    {
+        "id": "37eca36da7a16bf4",
+        "type": "debug",
+        "z": "8c4314a2bdc0602b",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 260,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "adbf5eee6cd1ae43",
+        "type": "change",
+        "z": "8c4314a2bdc0602b",
+        "name": "Set temperature",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.temp",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 420,
+        "y": 200,
+        "wires": [
+            [
+                "81e0ac24d361ef8d"
+            ]
+        ]
+    },
+    {
+        "id": "f5214874b8691c20",
+        "type": "change",
+        "z": "8c4314a2bdc0602b",
+        "name": " Set Humidity",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.hum",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 430,
+        "y": 260,
+        "wires": [
+            [
+                "11c108e3dd3c27bb"
+            ]
+        ]
+    },
+    {
+        "id": "11c108e3dd3c27bb",
+        "type": "ui_gauge",
+        "z": "8c4314a2bdc0602b",
+        "name": "",
+        "group": "d9d48b0847b8f5b3",
+        "order": 2,
+        "width": 7,
+        "height": 6,
+        "gtype": "gage",
+        "title": "Humidity",
+        "label": "%",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 620,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "142fbf3ec8530819",
+        "type": "change",
+        "z": "8c4314a2bdc0602b",
+        "name": "Set pressure",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.press",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 430,
+        "y": 320,
+        "wires": [
+            [
+                "fb7e6ee59ca5b4cd"
+            ]
+        ]
+    },
+    {
+        "id": "fb7e6ee59ca5b4cd",
+        "type": "ui_text",
+        "z": "8c4314a2bdc0602b",
+        "group": "d9d48b0847b8f5b3",
+        "order": 5,
+        "width": 27,
+        "height": 1,
+        "name": "",
+        "label": "Atmospheric Pressure",
+        "format": "{{msg.payload}} hPa",
+        "layout": "col-center",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 660,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "6435ae2d88a78b2a",
+        "type": "change",
+        "z": "8c4314a2bdc0602b",
+        "name": "Set Sound",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.sound",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 430,
+        "y": 400,
+        "wires": [
+            [
+                "8c70b0a8ee099ef5"
+            ]
+        ]
+    },
+    {
+        "id": "8c70b0a8ee099ef5",
+        "type": "ui_gauge",
+        "z": "8c4314a2bdc0602b",
+        "name": "",
+        "group": "d9d48b0847b8f5b3",
+        "order": 4,
+        "width": 7,
+        "height": 6,
+        "gtype": "gage",
+        "title": "Sound",
+        "label": "dB",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "120",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 630,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "81e0ac24d361ef8d",
+        "type": "ui_gauge",
+        "z": "8c4314a2bdc0602b",
+        "g": "d56b2919efe453ab",
+        "name": "",
+        "group": "d9d48b0847b8f5b3",
+        "order": 1,
+        "width": 7,
+        "height": 6,
+        "gtype": "gage",
+        "title": "Temperature",
+        "label": "°C",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "50",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 810,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "665fe88741444289",
+        "type": "change",
+        "z": "8c4314a2bdc0602b",
+        "name": "Set AQI",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.aqi",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 400,
+        "y": 480,
+        "wires": [
+            [
+                "442da6b50b9f0a4d"
+            ]
+        ]
+    },
+    {
+        "id": "442da6b50b9f0a4d",
+        "type": "ui_gauge",
+        "z": "8c4314a2bdc0602b",
+        "name": "",
+        "group": "d9d48b0847b8f5b3",
+        "order": 3,
+        "width": 7,
+        "height": 6,
+        "gtype": "donut",
+        "title": "AQI",
+        "label": "μg/m³ ",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "500",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "50",
+        "seg2": "100",
+        "diff": false,
+        "className": "",
+        "x": 630,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "aba67723963b01c9",
+        "type": "change",
+        "z": "8c4314a2bdc0602b",
+        "name": "Set pm1",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.pm1",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 380,
+        "y": 540,
+        "wires": [
+            [
+                "e135f066ed017e18"
+            ]
+        ]
+    },
+    {
+        "id": "5e4e970cd6127169",
+        "type": "change",
+        "z": "8c4314a2bdc0602b",
+        "name": "Set pm10",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.pm10",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 380,
+        "y": 660,
+        "wires": [
+            [
+                "e135f066ed017e18"
+            ]
+        ]
+    },
+    {
+        "id": "365160659320327b",
+        "type": "change",
+        "z": "8c4314a2bdc0602b",
+        "name": "Set pm25",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.pm25",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 400,
+        "y": 600,
+        "wires": [
+            [
+                "e135f066ed017e18"
+            ]
+        ]
+    },
+    {
+        "id": "e135f066ed017e18",
+        "type": "ui_chart",
+        "z": "8c4314a2bdc0602b",
+        "name": "",
+        "group": "d9d48b0847b8f5b3",
+        "order": 10,
+        "width": 7,
+        "height": 6,
+        "label": "Particulates Trends",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 810,
+        "y": 560,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "bd76c964214610f4",
+        "type": "change",
+        "z": "8c4314a2bdc0602b",
+        "name": "Set Voc",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.voc",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 420,
+        "y": 880,
+        "wires": [
+            [
+                "ad161e426ef9674c"
+            ]
+        ]
+    },
+    {
+        "id": "12dea66b09718213",
+        "type": "change",
+        "z": "8c4314a2bdc0602b",
+        "name": "Set Nox",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.nox",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 420,
+        "y": 840,
+        "wires": [
+            [
+                "ad161e426ef9674c"
+            ]
+        ]
+    },
+    {
+        "id": "99f0efb92afe22c6",
+        "type": "change",
+        "z": "8c4314a2bdc0602b",
+        "name": "Set Co2",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.co2",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 380,
+        "y": 720,
+        "wires": [
+            [
+                "d4e56c00eafd50b1"
+            ]
+        ]
+    },
+    {
+        "id": "c647c7f42f51f537",
+        "type": "change",
+        "z": "8c4314a2bdc0602b",
+        "name": "Set Ch4",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.ch4",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 420,
+        "y": 920,
+        "wires": [
+            [
+                "ad161e426ef9674c"
+            ]
+        ]
+    },
+    {
+        "id": "06cf7bc01b300c6a",
+        "type": "change",
+        "z": "8c4314a2bdc0602b",
+        "name": "Set Nh3",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.nh3",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 400,
+        "y": 780,
+        "wires": [
+            [
+                "07ac61a403b3e0f9"
+            ]
+        ]
+    },
+    {
+        "id": "d4e56c00eafd50b1",
+        "type": "ui_gauge",
+        "z": "8c4314a2bdc0602b",
+        "name": "",
+        "group": "d9d48b0847b8f5b3",
+        "order": 7,
+        "width": 7,
+        "height": 6,
+        "gtype": "gage",
+        "title": "CO2",
+        "label": "ppm",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "2000",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 590,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "07ac61a403b3e0f9",
+        "type": "ui_gauge",
+        "z": "8c4314a2bdc0602b",
+        "name": "",
+        "group": "d9d48b0847b8f5b3",
+        "order": 8,
+        "width": 7,
+        "height": 6,
+        "gtype": "gage",
+        "title": "NH3",
+        "label": "ppm",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "2000",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 590,
+        "y": 780,
+        "wires": []
+    },
+    {
+        "id": "ad161e426ef9674c",
+        "type": "ui_chart",
+        "z": "8c4314a2bdc0602b",
+        "name": "",
+        "group": "d9d48b0847b8f5b3",
+        "order": 9,
+        "width": 7,
+        "height": 6,
+        "label": "Gases Trends",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 680,
+        "y": 860,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d30c8ee2d24547ca",
+        "type": "ui_spacer",
+        "z": "8c4314a2bdc0602b",
+        "name": "spacer",
+        "group": "d9d48b0847b8f5b3",
+        "order": 6,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "21eca62074be8374",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "2da6969f531044d786fd80bd5962dcbd.s1.eu.hivemq.cloud",
+        "port": "8883",
+        "tls": "",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": true,
+        "protocolVersion": 4,
+        "keepalive": 60,
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "d9d48b0847b8f5b3",
+        "type": "ui_group",
+        "name": "Environment and Atmospheric",
+        "tab": "79b3d976594629b9",
+        "order": 1,
+        "disp": true,
+        "width": 28,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "79b3d976594629b9",
+        "type": "ui_tab",
+        "name": "Environment and Atmospheric",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "0c2821dd07c957cb",
+        "type": "global-config",
+        "env": [],
+        "modules": {
+            "node-red-dashboard": "3.6.6"
+        }
+    }
+]
