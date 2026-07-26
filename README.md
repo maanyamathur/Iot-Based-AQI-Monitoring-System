@@ -1,19 +1,5 @@
 # 🌍 IoT-Based Air Quality Monitoring System
 
-<p align="center">
-  <img src="Images/Prototype.jpg" alt="Project Prototype" width="700">
-</p>
-
-<p align="center">
-  <img src="https://img.shields.io/badge/ESP32-IoT-blue?style=for-the-badge">
-  <img src="https://img.shields.io/badge/Arduino-Nano-success?style=for-the-badge">
-  <img src="https://img.shields.io/badge/MQTT-HiveMQ-orange?style=for-the-badge">
-  <img src="https://img.shields.io/badge/Node--RED-Dashboard-red?style=for-the-badge">
-  <img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge">
-</p>
-
----
-
 # 📖 Overview
 
 The **IoT-Based Air Quality Monitoring System** is a smart environmental monitoring solution developed using **ESP32**, **Arduino Nano**, and multiple environmental sensors.
