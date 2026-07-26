@@ -119,7 +119,7 @@ IoT-Based-Air-Quality-Monitoring-System/
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/IoT-Based-Air-Quality-Monitoring-System.git
+git clone https://github.com/maanyamathur/IoT-Based-Air-Quality-Monitoring-System.git
 ```
 
 ### 2. Upload ESP32 Firmware
